@@ -4,6 +4,10 @@
 	git config --global user.email "navtojchahal@gmail.com"
 	git config --global core.editor "subl3 -n -w"
 	git config --global credential.helper 'cache --timeout=1800'
+    git config --global core.excludesfile ~/.gitignore_global
+        terminal: cat .gitignore_global
+        > desktop.ini
+    # Example .gitignore: https://github.com/github/gitignore
 
 # Git Docs: https://git-scm.com/docs/
 
