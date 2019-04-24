@@ -58,3 +58,12 @@ git pull
     	1. git add .
     	2. git commit -m "a_commit_message"
     	3. git push
+
+# Create new git branch
+git checkout -b name_of_new_branch
+
+# Delete git branch
+git branch -d name_of_branch
+
+# Delete branch from remote
+git push origin -d name_of_branch
