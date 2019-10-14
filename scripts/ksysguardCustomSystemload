@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "[ LOCAL/USR - SHARE - KSYSGUARD - SYSTEMLOAD ]"
-rm -f /home/$USER/.local/share/ksysguard/SystemLoad2.sgrd
+rm -f /home/replaceWithUserName/.local/share/ksysguard/SystemLoad2.sgrd
 sudo touch /usr/share/ksysguard/SystemLoad2.sgrd
 sudo bash -c 'cat << EOT > /usr/share/ksysguard/SystemLoad2.sgrd
 <?xml version="1.0" encoding="UTF-8"?>
