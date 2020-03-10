@@ -38,7 +38,9 @@ adb shell twrp wipe data
 adb shell twrp wipe dalvik
 adb shell twrp wipe cache
 
-| RePartition | // https://forum.xda-developers.com/nexus-4/orig-development/repartition-nexus-4-repartition-t3844383
+| RePartition |
+// https://forum.xda-developers.com/nexus-4/orig-development/repartition-nexus-4-repartition-t3844383
+// https://forum.xda-developers.com/nexus-4/general/guide-increase-nexus-4s-partition-space-t3800264
 
 [ Fresh Rom Flash: ROM > GAPPS > KERNEL > MAGISK ]
 
