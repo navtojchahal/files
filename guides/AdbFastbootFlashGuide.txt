@@ -1,0 +1,58 @@
+[ FASTBOOT: fastboot devices ]
+
+fastboot oem device-info
+
+| unlock |
+
+fastboot oem unlock
+
+| erase + format | 
+
+fastboot erase system
+fastboot erase boot
+fastboot erase cache
+fastboot erase userdata
+fastboot erase recovery
+fastboot -w // fix data mount
+
+| flash : recovery (twrp) |
+
+fastboot flash recovery twrp-*-mako.img
+fastboot reboot bootloader
+<UP><UP><POWER> = Recovery Mode
+
+[ ADB: adb devices ] // https://gist.githubusercontent.com/Pulimet/5013acf2cd5b28e55036c82c91bd56d8/raw/99b0791521bd3ac1b782982e3069ed0dbb5f3709/AdbCommands
+
+adb reboot bootloader
+
+| twrp : hacks (repeat until success) | // https://twrp.me/faq/openrecoveryscript.html
+
+[x] Never show this screen during boot again // create .twrps file
+adb shell twrp fixperms // skip swipe
+adb shell twrp remountrw
+
+| Full Wipe - /system data dalvik cache userdata |
+
+adb shell twrp wipe /system
+adb shell twrp wipe data
+adb shell twrp wipe dalvik
+adb shell twrp wipe cache
+
+| RePartition | // https://forum.xda-developers.com/nexus-4/orig-development/repartition-nexus-4-repartition-t3844383
+
+[ Fresh Rom Flash: ROM > GAPPS > KERNEL > MAGISK ]
+
+adb shell twrp install ...
+
+| Auto Rotation |
+
+adb pull /system/build.prop build.prop
+
+log.tag.launcher_force_rotate=VERBOSE
+lockscreen.rot_override=true
+windowsmgr.support_rotation_270=true
+persist.service.adb.enable=1
+persist.service.debuggable=1
+persist.sys.usb.config=mtp,adb
+
+adb push build.prop /system/build.prop
