@@ -1,0 +1,57 @@
+REM =====================================================
+REM == Create Partitions == Windows + Linux = GPT UEFI ==
+REM =====================================================
+
+select disk 0
+clean
+convert gpt
+list disk
+
+REM =====================================================
+REM ================= Partition  Layout =================
+REM =====================================================
+REM === 488258 == 1000 + 128 + 1000 + 243128 + 243128 ===
+REM =====================================================
+REM ==== System = MSR = Recovery =  Windows = Linux  ====
+REM ====  1000  = 128 =   1000   =  243128  = 243128 ====
+REM =====================================================
+
+REM =====================================================
+REM ================ 1. System partition ================
+REM =====================================================
+
+create partition efi size=1000
+format quick fs=fat32 label="System"
+assign letter="S"
+
+REM =====================================================
+REM ========== 2. Microsoft Reserved Partition ==========
+REM =====================================================
+
+create partition msr size=128
+
+REM =====================================================
+REM ============ 3. Recovery tools partition ============
+REM =====================================================
+
+create partition primary size=1000
+format quick fs=ntfs label="Recovery"
+assign letter="R"
+set id="de94bba4-06d1-4d40-a16a-bfd50179d6ac"
+gpt attributes=0x8000000000000001
+
+REM =====================================================
+REM =============== 4. Windows Partition ===============
+REM =====================================================
+
+create partition primary size=243128
+format quick fs=ntfs label="Windows"
+assign letter="W"
+
+REM =====================================================
+REM =============== Partitioning Complete ===============
+REM =====================================================
+
+list volume
+list partition
+exit
