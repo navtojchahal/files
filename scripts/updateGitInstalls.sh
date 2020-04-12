@@ -21,11 +21,11 @@ sh install.sh
 cd ..
 sudo rm -r applet-window-buttons
 # Rofi Applets & Menus: https://github.com/adi1090x/rofi
-sudo pacman -S --needed --noconfirm rofi
-sudo rm -r ~/.config/rofi
-mkdir ~/.config/rofi
-cd ~/.config/rofi
-git clone https://github.com/adi1090x/rofi.git
-cd rofi && chmod +x scripts/*
-cp -r bin scripts themes launchers launchers-git config.rasi ~/.config/rofi
-cd .. && sudo rm -r rofi
+#sudo pacman -S --needed --noconfirm rofi
+#sudo rm -r ~/.config/rofi
+#mkdir ~/.config/rofi
+#cd ~/.config/rofi
+#git clone https://github.com/adi1090x/rofi.git
+#cd rofi && chmod +x scripts/*
+#cp -r bin scripts themes launchers launchers-git config.rasi ~/.config/rofi
+#cd .. && sudo rm -r rofi
