@@ -1,6 +1,0 @@
-configuration {
-modi: "window,run,drun";
-theme: "breeze-dark.rasi";
-drun-display-format: "{icon}  {name}";
-show-icons: true;
-}
