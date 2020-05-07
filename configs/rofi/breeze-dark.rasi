@@ -1,82 +1,84 @@
+// https://github.com/davatorium/rofi/blob/next/doc/rofi-theme.5.markdown#name-1
+// https://github.com/davatorium/rofi/issues/949
+
 * {
-  bg: #31363b;
-  fg: #ffffff;
-  ac: #3daee9;
-  txt: #ffffff;
+  lightGray: #31363b;
+  darkGray: #232627;
+  blue: #3daee9;
+  white: #ffffff;
 }
 
 * {
-  background-color: rgba(0,0,0,0);
+  background-color: transparent;
   font: "Iosevka 12";
 }
 
 window {
-  height: 42%;
-  width: 40%;
-  transparency: "real";
+  children: [ mainbox ];
+  location: south;
+  width: 100%;
+//  height: 56%;
+//  fullscreen: true;
 }
 
 mainbox {
-  children: [ inputbar, listview ];
-  padding: 0% 0% 0% 0%;
-  background-color: @bg;
+  children: [ listview, inputbar ];
+  orientation: vertical;
+  spacing: 0;
+  background-color: @lightGray;
   border: 0;
   border-radius: 0;
-  border-color: #ffffff0A;
+  border-color: @darkGray;
 }
 
 listview {
-  columns: 2;
+  columns: 5;
   padding: 0;
-  spacing: 0;
+  spacing: 2;
+  lines: 7;
+  fixed-height: false;
+  dynamic: true;
+  scrollbar: false;
+  border: 0;
 }
 
 element {
-  border: 1;
-  text-color: @txt;
-  orientation: vertical;
-  padding: 8 12 8 12;
+  border: 2;
+  border-color: @darkGray;
+  text-color: @white;
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+  padding: 10 10 10 10;
   border-radius: 0;
 }
 
 element selected {
-  background-color: @bg;
-  border-color: @ac;
-  text-color: @ac;
+  background-color: @lightGray;
+  border-color: @blue;
+  border: 2;
+  text-color: @blue;
   transition: 50;
 }
-
+/*
 element-icon {
-  size: 60;
   horizontal-align: 0.5;
   vertical-align: 0.5;
 }
-
-element-icon {
-  size: 40;
-  horizontal-align: 0.5;
-  vertical-align: 0.5;
-}
-
+*/
 element-text {
   horizontal-align: 0.5;
   vertical-align: 0.5;
-  text-color: inherit;
+  text-color: @text;
 }
 
 inputbar {
   children: [entry];
-  padding: 2 4 2 4;
-  background-color: #232627;
-  border: 2 2 0 2;
-  border-color: @bg;
-}
-
-prompt {
-  enabled: false;
+  background-color: @darkGray;
+  border-color: @lightGray;
+  border: 0;
 }
 
 entry {
-  text-color: @txt;
-  padding: 8 12 8 12;
+  text-color: @white;
+  padding: 10 10 10 10;
 }
