@@ -1,0 +1,10 @@
+doskey /history > history.txt
+
+adb shell pm uninstall --user 0 org.lineageos.audiofx
+adb shell pm uninstall --user 0 com.android.deskclock
+adb shell pm uninstall --user 0 com.android.contacts
+adb shell pm uninstall --user 0 com.android.email
+adb shell pm uninstall --user 0 com.android.gallery3d
+adb shell pm uninstall --user 0 com.android.messaging
+adb shell pm uninstall --user 0 org.lineageos.eleven
+adb shell pm uninstall --user 0 com.android.dialer
